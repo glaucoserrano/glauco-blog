@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { ActiveLink } from "../active-link";
-import Image from "next/image";
+import { Logo } from "../logo";
 
 export const Header =()=>{
 
@@ -9,7 +9,7 @@ export const Header =()=>{
         <header className="
             fixed top-0 z-50
             w-full border-b
-            borderwhite/10
+            border-white/10
             bg-background/95
             backdrop-blur 
             supprts-[backdrop-filter]
@@ -24,13 +24,7 @@ export const Header =()=>{
                     flex h-16 
                     items-center
                     justify-between">
-                        <Link href="/">
-                            <Image src={"/logo.svg"}
-                                alt="Logo site"
-                                width={116}
-                                height={32}
-                            />
-                        </Link>
+                        <Logo />
                         <nav className="flex 
                             items-center 
                             gap-6"
