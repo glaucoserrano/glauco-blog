@@ -1,9 +1,11 @@
+import { HeroSection } from "@/components/hero-section";
+
 export default function Home() {
   return (
-    <div className="flex 
-      min-h-screen flex-col items-center 
-      justify-between
-      p-24">
-    </div>
+    <>
+      <article className="flex flex-col">
+        <HeroSection />
+      </article>
+    </>
   );
 }
