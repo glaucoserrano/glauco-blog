@@ -31,7 +31,7 @@ export const HeroSection = () => {
                     lg:items-start"
                 >
                     <h1 className="text-gray-100 
-                        text-heading-hg"
+                        text-heading-hg font-sans"
                     >
                         Venda seus produtos 
                         como afiliado em um único lugar

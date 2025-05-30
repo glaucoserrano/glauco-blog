@@ -18,7 +18,7 @@ export const FeatureSection = () => {
             >
                 Simples
                 </span>
-                <h2 className="text-gray-100 
+                <h2 className="font-sans text-gray-100 
                     text-heading-lg"
                 >
                     Crie um catálogo de produtos 
@@ -33,7 +33,7 @@ export const FeatureSection = () => {
             >
                 Prático
                 </span>
-                <h2 className="text-gray-100 
+                <h2 className="font-sans text-gray-100 
                     text-heading-lg"
                 >
                     Venda para seu público através de 
@@ -59,8 +59,8 @@ export const FeatureSection = () => {
                         >
                             Personalizável
                         </span>
-                        <h2 className="text-gray-100 
-                            text-heading-lg"
+                        <h2 className="font-sans text-gray-100 
+                            text-heading-lg "
                         >
                             Tenha uma loja online personalizada 
                             com a cara da sua marca 
