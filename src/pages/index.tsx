@@ -1,20 +1,8 @@
-import { CallToAction } from "@/components/call-to-action";
-import { CustumerStorySection } from "@/components/custumer-story-section";
-import { FeatureSection } from "@/components/feature-section";
-import { HeroSection } from "@/components/hero-section";
-import { SupportSection } from "@/components/support-section";
+import { LandingPage } from "@/templates/landing-page";
 
 
 export default function Home() {
   return (
-    <>
-      <article className="flex flex-col">
-        <HeroSection />
-        <FeatureSection />
-        <SupportSection />
-        <CustumerStorySection />
-        <CallToAction />
-      </article>
-    </>
+    <LandingPage />    
   );
 }
