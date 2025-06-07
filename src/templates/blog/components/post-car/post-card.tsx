@@ -1,13 +1,27 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export const PostCard = () => {
+type Author = {
+    name: string,
+    avatar: string
+}
+
+type PostCardProps = {
+    slug: string,
+    title: string,
+    description: string,
+    image: string,
+    date: string,
+    author: Author
+}
+
+export const PostCard = ({author,date,description,image,slug,title} : PostCardProps) => {
     return (
         <Link 
-            href={'/blog/'}
+            href={`/blog/${slug}`}
             className="w-full 
                 max-w-2xl 
-                rounded-3xl
+                rounded-[12px]
                 border-[1px]
                 border-gray-400
                 bg-gray-600
@@ -25,17 +39,20 @@ export const PostCard = () => {
                 <div className="relative">
                     <div className="
                         absolute top-0
-                        right-0 px-3 py-1">
+                        right-0 px-3 py-1
+                        bg-gray-600 backdrop-blur-sm
+                        rounded-bl-[10px]"
+                    >
                         <span className="
                             text-gray-300
                             text-body-xs
                             "
                         >
-                            06/06/2025
+                            {date}
                         </span>
                     </div>
                     <Image 
-                        src={'/assets/primeiro-post.png'}
+                        src={image}
                         alt =""
                         width={288}
                         height={144}
@@ -43,7 +60,8 @@ export const PostCard = () => {
                             w-full 
                             h-40 
                             object-cover 
-                            object-center"
+                            object-center
+                            rounded-t-[8px]"
                     />
                     {/* post info */}
                     <div className="
@@ -53,15 +71,13 @@ export const PostCard = () => {
                             text-heading-sm text-gray-100
                             line-clamp-3"
                         >
-                            Transformando seu negócio em uma loja virtual
+                            {title}
                         </h2>
                         <p className="
                             text-gray-300 text-body-sm
                             line-clamp-3"
                         >
-                            Se você está buscando uma 
-                            maneira simples e eficaz 
-                            de vender seus produtos online, o Site....
+                            {description}
                         </p>
                         {/**Post Footer */}
                         <div className="
@@ -75,7 +91,7 @@ export const PostCard = () => {
                                 border-blue-200 border-[1px]"
                             >
                                 <Image
-                                    src={'/custumer01.png'} 
+                                    src={author.avatar} 
                                     alt=""
                                     fill
                                     className="
@@ -85,7 +101,7 @@ export const PostCard = () => {
                             <span className="
                                 text-body-sm text-gray-300"
                             >
-                                Aspen Dokidis
+                                {author.name}
                             </span>
                         </div>
                     </div>
