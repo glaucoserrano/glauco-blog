@@ -2,11 +2,14 @@ import { Search } from "@/components/search";
 import { useRouter } from "next/router";
 import { PostCard } from "./components/post-car";
 import { PostGridCard } from "./components/post-grid";
+import { allPosts } from "contentlayer/generated";
 
 export function BlogList(){
     const router = useRouter()
     const query = router.query.q as string
     const pageTitle = query ? `Resultados de buscas para "${query}"` : 'Dicas e estratégias para impulsionar seu negócio'
+
+    const post = allPosts;
     return(
         <div className="
             flex flex-col py-24 
@@ -43,55 +46,20 @@ export function BlogList(){
                 </div>
             </header>
             <PostGridCard>
-                <PostCard 
-                    title="Transformando seu negócio em uma loja virtual"
-                    description="Se você está buscando um maneira simples e 
-                        eficaz de vender seus produtos online, o Site.Set..."
-                    date="07/06/205"
-                    image="/assets/primeiro-post.png"
-                    slug="/transformando-seu-negocio"
-                    author={{
-                        avatar:"/custumer01.png",
-                        name:"Avril Lavigne"
-                    }}
-                />
-                <PostCard 
-                    title="Transformando seu negócio em uma loja virtual"
-                    description="Se você está buscando um maneira simples e 
-                        eficaz de vender seus produtos online, o Site.Set..."
-                    date="07/06/205"
-                    image="/assets/primeiro-post.png"
-                    slug="/transformando-seu-negocio"
-                    author={{
-                        avatar:"/custumer01.png",
-                        name:"Avril Lavigne"
-                    }}
-                />
-                <PostCard 
-                    title="Transformando seu negócio em uma loja virtual"
-                    description="Se você está buscando um maneira simples e 
-                        eficaz de vender seus produtos online, o Site.Set..."
-                    date="07/06/205"
-                    image="/assets/primeiro-post.png"
-                    slug="/transformando-seu-negocio"
-                    author={{
-                        avatar:"/custumer01.png",
-                        name:"Avril Lavigne"
-                    }}
-                />
-                <PostCard 
-                    title="Transformando seu negócio em uma loja virtual"
-                    description="Se você está buscando um maneira simples e 
-                        eficaz de vender seus produtos online, o Site.Set..."
-                    date="07/06/205"
-                    image="/assets/primeiro-post.png"
-                    slug="/transformando-seu-negocio"
-                    author={{
-                        avatar:"/custumer01.png",
-                        name:"Avril Lavigne"
-                    }}
-                />
-
+                {post.map((post) => (
+                    <PostCard 
+                        key={post._id}
+                        title={post.title}
+                        description={post.description}
+                        date={new Date(post.date).toLocaleDateString("pt-BR")}
+                        image={post.image}
+                        slug={post.slug}
+                        author={{
+                            avatar: post.author.avatar,
+                            name: post.author.name
+                        }}
+                   />  
+                ))}
             </PostGridCard>
         </div>
     )
