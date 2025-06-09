@@ -53,7 +53,7 @@ export const PostCard = ({author,date,description,image,slug,title} : PostCardPr
                     </div>
                     <Image 
                         src={image.trimEnd()}
-                        alt =""
+                        alt ={title}
                         width={288}
                         height={144}
                         className="
