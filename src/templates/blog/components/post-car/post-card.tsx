@@ -61,7 +61,7 @@ export const PostCard = ({author,date,description,image,slug,title} : PostCardPr
                             h-40 
                             object-cover 
                             object-center
-                            rounded-t-[8px]"
+                            rounded-[8px]"
                     />
                     {/* post info */}
                     <div className="
