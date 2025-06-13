@@ -1,3 +1,6 @@
+import { AvatarContainer } from "@/components/avatar/avatar-container"
+import { AvatarImage } from "@/components/avatar/avatar-image"
+import { AvatarTitle } from "@/components/avatar/avatar-title"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -90,13 +93,15 @@ export const PostCard = ({author,date,description,image,slug,title} : PostCardPr
                                 overflow-hidden rounded-full 
                                 border-blue-200 border-[1px]"
                             >
-                                <Image
-                                    src={author.avatar} 
-                                    alt=""
-                                    fill
-                                    className="
-                                    object-cover rounded-md"
-                                />
+                                <AvatarContainer>
+                                    <AvatarImage 
+                                        src={author?.avatar}
+                                        alt={author?.name}
+                                    />
+                                    <AvatarTitle>
+                                        {author.name}
+                                    </AvatarTitle>
+                                </AvatarContainer>
                             </div>
                             <span className="
                                 text-body-sm text-gray-300"
