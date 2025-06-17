@@ -4,7 +4,7 @@ import { AvatarImage } from "@/components/avatar/avatar-image";
 import { MarkdownPost } from "@/components/markdown";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { useShare } from "@/hooks";
+import { useShare } from "@/hooks/shared";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
@@ -106,7 +106,7 @@ export default function PostPage() {
                     <aside className="space-y-6">
                         <div className="
                             rounded-lg bg-gray-700
-                            p-4 md:p-6"
+                            "
                         >
                             <h2 className="
                                 mb-4 text-heading-xs
