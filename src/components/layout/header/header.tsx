@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import { Button } from "../../ui/button"
 import { ActiveLink } from "../../active-link";
@@ -36,8 +37,9 @@ export const Header =()=>{
                                 Blog
                             </ActiveLink>
                             <Button 
-                            variant={"secondary"}
-                            asChild>
+                            variant="secondary"
+                            asChild
+                            >
                                 <Link href="/comecar">
                                     Começar
                                 </Link> 
