@@ -3,11 +3,10 @@ import { AvatarDescription } from "@/components/avatar/avatar-description";
 import { AvatarImage } from "@/components/avatar/avatar-image";
 import { MarkdownPost } from "@/components/markdown";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { useShare } from "@/hooks/shared";
 import { Post } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
+import { PostShare } from "./components/post-share";
 
 export type PostPageProps = {
     post : Post
@@ -16,12 +15,7 @@ export type PostPageProps = {
 export const PostPage = ({ post }: PostPageProps ) =>{
     const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR')
     const postURL = `http://localhost:3000/blog/${post.slug}`
-    const {shareButtons} = useShare({
-        url: postURL,
-        title: post?.title,
-        text: post?.description,
 
-    })
     return(
         <main className="py-20 text-gray-100">
             <div className="
@@ -100,37 +94,11 @@ export const PostPage = ({ post }: PostPageProps ) =>{
                                 <MarkdownPost content={post.body.raw}/>
                             </div>
                     </article>
-                    <aside className="space-y-6">
-                        <div className="
-                            rounded-lg bg-gray-700
-                            "
-                        >
-                            <h2 className="
-                                hidden
-                                md:block
-                                mb-4 text-heading-xs
-                                text-gray-100"
-                            >
-                                Compartilhar
-                            </h2>
-                            <div className="
-                                flex justify-between 
-                                md:flex-col gap-2">
-                                {shareButtons.map((provider) =>(
-                                    <Button 
-                                        key={provider.provider}
-                                        variant="outline"
-                                        className="w-fit md:w-full justify-start gap-2"
-                                        onClick={provider.action}
-                                    >
-                                        {provider.icon}
-                                        <span className="hidden md:block">{provider.name}</span>
-                                    </Button>
-                                ))}
-
-                            </div>
-                        </div>
-                    </aside>
+                    <PostShare
+                        url={postURL}
+                        title={post.title}
+                        description= {post.description}
+                    />
                 </div>  
             </div>
         </main>

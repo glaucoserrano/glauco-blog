@@ -21,7 +21,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
                         className="text-gray-100 mx-auto"
                     />
                     <div className="absolute h-1 
-                        w-16 bg-red-500 rotate-12 
+                        w-16 bg-red-500 rotate-1/2 
                         top-1/2 left-1/2 transform 
                         translate-x-1/2 translate-y-1/2
                         opacity-80"
@@ -37,7 +37,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
                     <p className="
                         text-gray-200 mb-2 px-4
                         text-body-sm overflow-hidden
-                        text-ellipsis max-h-24"
+                        text-ellipsisi max-h-24"
                     >
                         {error.message}
                     </p>)}
