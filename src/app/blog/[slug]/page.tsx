@@ -7,6 +7,13 @@ type BlogPostPage ={
         slug: string;
     }>
 }
+export const revalidate = 60
+export const dynamicParams = true
+export async function generateStaticParams(){
+    return allPosts.map((post) => ({
+        slug: post.slug
+    }))
+}
 
 export default async function BlogPostPage({ params } : BlogPostPage) {
     const {slug} = await params
